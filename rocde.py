@@ -55,7 +55,26 @@ class Convnet():
     '''
     Hybrid parallel convolutional neural network model with three Channels, 
     whose output are merged through concatenation.
+    
+    Parameters
+    ----------
+    batch_size: int
+            the size of the batch
+    epochs: int
+            number of epochs to be conducted during training
+    height: int
+            the size of the height (h) of the filter
+    width: int
+            the size of the width (w) of the filter
+            
+   
+    Returns
+   
+    -------
+    ftted model and predictions: tuple
+            The fitted model and predictions for road crack detection
     '''
+
     def __init__(self,X,y,sr,batch_size=1000,epochs=3,h=50,w=50,c=3):
         self.X=X
         self.y =y
