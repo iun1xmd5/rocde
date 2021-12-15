@@ -27,7 +27,7 @@ If you find this code useful in your research, please, consider citing our paper
 # Reference
 ```
   @inproceedings{wamburaicvip2021,
-	AUTHOR = "Stephen Wambura and He Li", 
+	AUTHOR = "Shadrack Fred Mahenge and Stephen Wambura and Ala A. Alsanabani", 
 	TITLE = "Robust Deep Representation Learning for Road Crack Detection",
 	publisher = {Association for Computing Machinery},
 	booktitle  = {ICVIP 2021: Proceedings of The 5th International Conference on Video and Image Processing},
