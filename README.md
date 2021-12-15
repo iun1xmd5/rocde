@@ -41,3 +41,4 @@ If you find this code useful in your research, please, consider citing our paper
 RoCDE is distributed under Apache 2.0 license.
 
 Contact: Stephen Wambura - stephen.wambura@dit.ac.tz
+	 Shadrack Mahenge - shadrackmahenge625@gmail.com
