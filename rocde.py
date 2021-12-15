@@ -6,8 +6,15 @@ Created on Sat Nov 06 02:27:08 2021
 
 @author: c1ph3r
 """
-
-from keras.layers import Conv2D,Input,Dense,MaxPooling2D,Dropout,Flatten
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+from keras.layers import Conv2D
+from keras.layers import Input
+from keras.layers import Dense
+from keras.layers import MaxPooling2D
+from keras.layers import Dropout
+from keras.layers import Flatten
 from keras.models import Model
 from keras.layers.merge import concatenate
 import pandas as pd
@@ -15,11 +22,40 @@ import numpy as np
 import os
 from keras.utils import plot_model
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
+#from sklearn.preprocessing import StandardScaler
 import tqdm
 from tweek import set_size
+from matplotlib.ticker import ScalarFormatter, AutoMinorLocator
+#plt.style.use('mpsty/mypaperstyle.mplstyle')
+#mpl.use('pdf')
+#import matplotlib.pyplot as plt
+#from matplotlib import style
+#style.use('seaborn-paper')
+'''plt.rc('font', family= 'serif', serif= 'Times, Palatino, New Century Schoolbook, Bookman, Computer Modern Roman')
+#plt.rc('font', family='sans-serif', sans_serif= 'Helvetica, Avant Garde, Computer Modern Sans serif')
+plt.rc('font', family='sans-serif')
+plt.rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+## for Palatino and other serif fonts use:
+#rc('font',**{'family':'serif','serif':['Palatino']})
+plt.rc('font', family='monospace', monospace= 'Courier, Computer Modern Typewriter')'''
+plt.rc('font',**{'family':'serif','serif':['Times']})
+plt.rc('text', usetex = True) # Use latex for text
+plt.rc('xtick', labelsize = 14)
+plt.rc('ytick', labelsize = 14)
+plt.rc('axes', labelsize = 14)
+plt.rc('axes', linewidth=1)
+plt.rcParams['text.latex.preamble'] =[r'\boldmath']
+params = {'legend.framealpha': 0.1,
+          'legend.handlelength': 0.8,
+          'legend.labelspacing':0.1,
+          'legend.fontsize' : 10}
+plt.rcParams.update(params)
 
-class Convnet():
+class Convnet(): 
+    '''
+    Hybrid parallel convolutional neural network model with three Channels, 
+    whose output are merged through concatenation.
+    '''
     def __init__(self,X,y,sr,batch_size=1000,epochs=3,h=50,w=50,c=3):
         self.X=X
         self.y =y
